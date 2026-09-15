@@ -2,7 +2,7 @@
 
 A modern, responsive, and SEO-friendly dental clinic website developed for **Sakthi Dental Clinic** to provide patients with a professional online experience and easy access to information about treatments, facilities, doctors, and contact details.
 
-🔗 **Live Website:** https://sujaldhote-portfolio.netlify.app/
+🔗 **Live Website:** https://sakthi-dental-clinic-web.netlify.app/
 
 > **Client Project:** Sakthi Dental Clinic
 
