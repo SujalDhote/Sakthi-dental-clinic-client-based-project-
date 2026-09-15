@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fa;
+  --color-brand-200: #ddd6f7;
+  --color-brand-300: #c4b5f0;
+  --color-brand-400: #a68de6;
+  --color-brand-500: #8b65d9;
+  --color-brand-600: #7c6fcd;
+  --color-brand-700: #6a59b8;
+  --color-brand-800: #574898;
+  --color-brand-900: #483c7e;
+
+  /* Teal accent */
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+
+  /* Neutrals */
+  --color-neutral-50: #f8f7ff;
+  --color-neutral-100: #f1f0f7;
+  --color-neutral-200: #e2e0ef;
+
+  /* Typography */
+  --font-display: var(--font-display), 'Playfair Display', Georgia, serif;
+  --font-sans: var(--font-sans), 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 24px 0 rgba(124, 111, 205, 0.08);
+  --shadow-card: 0 2px 16px 0 rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 8px 40px 0 rgba(124, 111, 205, 0.15);
+}
+
+/* ─────────────────────────────────────
+   Base reset & global styles
+───────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #1a1a2e;
+  background-color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #7c6fcd;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────
+   Typography utilities
+───────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ─────────────────────────────────────
+   Keyframe Animations & Micro-interactions
+───────────────────────────────────── */
+@keyframes phone-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  3% {
+    transform: rotate(-14deg);
+  }
+
+  6% {
+    transform: rotate(14deg);
+  }
+
+  9% {
+    transform: rotate(-10deg);
+  }
+
+  12% {
+    transform: rotate(10deg);
+  }
+
+  15% {
+    transform: rotate(-4deg);
+  }
+
+  18% {
+    transform: rotate(4deg);
+  }
+
+  21% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes subtle-shine {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+
+  40%,
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.animate-phone-ring {
+  animation: phone-ring 5.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 28s linear infinite;
+}
+
+.animate-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  animation: subtle-shine 6s ease-in-out infinite;
+}
+
+/* Ambient Radial Glow */
+.bg-ambient-glow {
+  background-image: radial-gradient(circle at 50% 20%,
+      rgba(196, 181, 240, 0.18) 0%,
+      rgba(245, 243, 255, 0.05) 50%,
+      transparent 80%);
+}
+
+/* Reduced-motion overrides */
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-phone-ring,
+  .animate-float-slow,
+  .animate-spin-slow,
+  .animate-shine::after {
+    animation: none !important;
+  }
+}
+
+/* ─────────────────────────────────────
+   Scrollbar styling
+───────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f0f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4b5f0;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b65d9;
+}
