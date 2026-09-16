@@ -37,16 +37,17 @@ export default function Header() {
     const closeMenu = useCallback(() => setIsOpen(false), [])
 
     return (
-        <header
-            className={cn(
-                'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-                scrolled
-                    ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_24px_0_rgba(0,0,0,0.06)]'
-                    : 'bg-white/90 backdrop-blur-sm border-b border-[#ede9fa]/60'
-            )}
-        >
+        <>
+            <header
+                className={cn(
+                    'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+                    scrolled
+                        ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_24px_0_rgba(0,0,0,0.06)]'
+                        : 'bg-white/90 backdrop-blur-sm border-b border-[#ede9fa]/60'
+                )}
+            >
             <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-                <div className="flex items-center justify-between h-20 lg:h-24">
+                <div className="flex items-center justify-between h-20 xl:h-24">
 
                     {/* Logo / Branding — Clearly larger and instantly recognizable */}
                     <Link
@@ -68,7 +69,7 @@ export default function Header() {
 
                     {/* Desktop Navigation — Increased font size, generous spacing & clear active state */}
                     <nav
-                        className="hidden lg:flex items-center gap-2 xl:gap-3 bg-[#f8f7ff]/90 p-2 rounded-full border border-[#ede9fa] shadow-2xs"
+                        className="hidden xl:flex items-center gap-2 xl:gap-3 bg-[#f8f7ff]/90 p-2 rounded-full border border-[#ede9fa] shadow-2xs"
                         aria-label="Main navigation"
                     >
                         {navItems.map((item) => {
@@ -91,7 +92,7 @@ export default function Header() {
                     </nav>
 
                     {/* Desktop CTA & Interactive Phone Area */}
-                    <div className="hidden lg:flex items-center gap-4 xl:gap-5">
+                    <div className="hidden xl:flex items-center gap-4 xl:gap-5">
                         <a
                             href="tel:+919862890897"
                             className="flex items-center gap-3 px-4 py-2.5 rounded-full border border-[#ede9fa] bg-[#f8f7ff] text-[#1a1a2e] hover:text-[#7c6fcd] hover:border-[#c4b5f0] hover:bg-[#f5f3ff] transition-all duration-200 shadow-2xs group"
@@ -114,7 +115,7 @@ export default function Header() {
 
                     {/* Mobile hamburger */}
                     <button
-                        className="lg:hidden p-2.5 rounded-xl text-[#33334d] hover:bg-[#f5f3ff] hover:text-[#7c6fcd] transition-colors border border-transparent hover:border-[#ede9fa]"
+                        className="xl:hidden p-2.5 rounded-xl text-[#33334d] hover:bg-[#f5f3ff] hover:text-[#7c6fcd] transition-colors border border-transparent hover:border-[#ede9fa]"
                         onClick={() => setIsOpen((v) => !v)}
                         aria-expanded={isOpen}
                         aria-controls="mobile-menu"
@@ -124,12 +125,13 @@ export default function Header() {
                     </button>
                 </div>
             </div>
+            </header>
 
             {/* Mobile Menu */}
             <div
                 id="mobile-menu"
                 className={cn(
-                    'lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white/98 backdrop-blur-md transition-all duration-300 ease-in-out overflow-y-auto border-t border-[#ede9fa]',
+                    'xl:hidden fixed inset-x-0 top-20 bottom-0 z-40 bg-white/98 backdrop-blur-md transition-all duration-300 ease-in-out overflow-y-auto border-t border-[#ede9fa]',
                     isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'
                 )}
                 aria-hidden={!isOpen}
@@ -177,6 +179,6 @@ export default function Header() {
                     </div>
                 </nav>
             </div>
-        </header>
+        </>
     )
 }

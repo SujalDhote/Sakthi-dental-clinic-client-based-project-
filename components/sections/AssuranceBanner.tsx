@@ -113,7 +113,7 @@ export default function AssuranceBanner() {
                             <button
                                 onClick={handlePrev}
                                 aria-label="Previous banner"
-                                className="p-1 rounded-full hover:bg-white/20 text-white/90 hover:text-white transition-colors"
+                                className="min-h-11 min-w-11 flex items-center justify-center rounded-full hover:bg-white/20 text-white/90 hover:text-white transition-colors"
                             >
                                 <ChevronLeft size={20} />
                             </button>
@@ -123,15 +123,20 @@ export default function AssuranceBanner() {
                                         key={idx}
                                         onClick={() => setCurrentIndex(idx)}
                                         aria-label={`Go to slide ${idx + 1}`}
-                                        className={`h-2.5 rounded-full transition-all ${idx === currentIndex ? 'w-8 bg-[#c4b5f0]' : 'w-2.5 bg-white/40 hover:bg-white/60'
-                                            }`}
-                                    />
+                                        className="min-h-11 min-w-11 flex items-center justify-center"
+                                    >
+                                        <span
+                                            aria-hidden="true"
+                                            className={`block h-2.5 rounded-full transition-all ${idx === currentIndex ? 'w-8 bg-[#c4b5f0]' : 'w-2.5 bg-white/40 hover:bg-white/60'
+                                                }`}
+                                        />
+                                    </button>
                                 ))}
                             </div>
                             <button
                                 onClick={handleNext}
                                 aria-label="Next banner"
-                                className="p-1 rounded-full hover:bg-white/20 text-white/90 hover:text-white transition-colors"
+                                className="min-h-11 min-w-11 flex items-center justify-center rounded-full hover:bg-white/20 text-white/90 hover:text-white transition-colors"
                             >
                                 <ChevronRight size={20} />
                             </button>
